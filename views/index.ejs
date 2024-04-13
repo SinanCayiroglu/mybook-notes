@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="container">
-        <% books.forEach(book => { %>
+        <% if(locals.books&&locals.books.length>0){books.forEach(book => { %>
             <div class="book">
                 <img src="<%= book.cover_image %>" alt="Book Cover">
                 <div class="book-details">
@@ -38,7 +38,7 @@
 
                 </div>
             </div>
-        <% }); %>
+        <% })}; %>
     </div>
     <footer>Created by @Sinan</footer>
 </body>

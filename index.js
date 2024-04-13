@@ -11,10 +11,13 @@ app.set("view engine", "ejs");
 
 const db = new pg.Client({
   user: "postgres",
-  host: "localhost",
-  database: "book-notes",
-  password: "Ph4rk3tm3z*",
+  host: "database-3.cjg8eayy236w.us-east-1.rds.amazonaws.com",
+  database: "mybooknotes",
+  password: "JNqPLdVeb7DQYMJQoD2F",
   port: 5432,
+  ssl: {
+    rejectUnauthorized: false // This is required for render.com's SSL configuration
+  }
 });
 db.connect();
 
