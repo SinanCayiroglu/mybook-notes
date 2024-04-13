@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a book</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="add-book">
+    <h2>Add a book</h2>
+    <form class="addabook" action="/addbook" method="post">
+        <input type="text" name="isbn" placeholder="ISBN" required />
+        <textarea name="review" id="review" cols="30" rows="10"></textarea>
+        <select id="rating" name="rating" required>
+            <option value="" disabled selected>Rating:</option>
+            <% for (let i = 0; i <= 10; i++) { %>
+            <option value="<%= i %>"><%= i %></option>
+            <% } %>
+          </select>
+          <button type="submit">Submit</button>
+        </form></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Notes</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <h1 class="title">My Book Notes</h1>
+    <div class="header">
+        <div class="header-items">
+            <form action="/add" method="post">
+                <button type="submit">Add</button>
+            </form>
+            <div class="sorting-options">
+              <form action="/" method="GET">
+                <label for="sort-by">Sort By:</label>
+                <select id="sort-by" name="sortBy">
+                  <option value="rating">Rating</option>
+                  <option value="recent">Recent</option>
+                </select>
+                <button type="submit">Sort</button>
+              </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <% books.forEach(book => { %>
+            <div class="book">
+                <img src="<%= book.cover_image %>" alt="Book Cover">
+                <div class="book-details">
+                    <p>Title: <%= book.title %></p>
+                    <p>Publish date: <%= book.publish_date %></p>
+                    <p>Author: <%= book.author %></p>
+                    <p>Rating: <%= book.rating %></p>
+                    <p>Review: <%= book.review %></p>
+
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <footer>Created by @Sinan</footer>
+</body>
+</html>
