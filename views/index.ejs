@@ -35,7 +35,15 @@
                     <p>Author: <%= book.author %></p>
                     <p>Rating: <%= book.rating %></p>
                     <p>Review: <%= book.review %></p>
-
+                    <div class="buttons">
+                        <form action="/edit/<%= book.id %>" method="post">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form action="/delete/<%= book.id %>" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    
                 </div>
             </div>
         <% })}; %>

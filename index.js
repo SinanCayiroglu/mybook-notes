@@ -92,6 +92,53 @@ app.post("/addbook", async (req, res) => {
 });
 
 
+app.post("/edit/:idnumber",async(req,res)=>{
+  const { isbn,review,rating } = req.body;
+  const requstedId = req.params.idnumber
+  try{
+    const result = await db.query("SELECT * FROM book WHERE id = $1",[
+      requstedId
+    ])
+    const bookToEdit = result.rows[0]
+    if (bookToEdit) {
+      // Send JSON response with book data
+      res.render("edit",{ book: bookToEdit });
+    } else {
+      // Book not found, send 404 status
+      res.status(404).json({ error: "Book not found" });
+    }
+  } catch (error) {
+    console.error("Error editing book:", error);
+    // Send 500 status for internal server error
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.post("/update/:idnumber",async function(req,res){
+  const requestedId = req.params.idnumber
+  const { isbn,review,rating } = req.body;
+  try{
+    const result = await db.query("UPDATE book SET isbn = $1, review = $2, rating = $3 WHERE id = $4 RETURNING*",
+  [isbn,review,rating,requestedId])
+  if(result.rowCount>0){
+    res.redirect("/")
+  }
+}catch(error){
+    console.error(error)
+  }
+})
+
+app.post("/delete/:idnumber",async(req,res)=>{
+  const requestedId = req.params.idnumber
+  const { isbn,review,rating } = req.body;
+  try{
+    const result = await db.query("DELETE FROM book WHERE id=$1",[
+      requestedId,
+    ]);if(result.rowCount>0){
+      res.redirect("/")
+    }
+  }catch(error){console.error(error)}
+} )
 
 app.listen(3000,()=>{
     console.log("Server is running on port 3000")

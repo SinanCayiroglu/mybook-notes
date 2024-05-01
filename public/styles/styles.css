@@ -25,18 +25,22 @@ body{
     align-items: center;
 }
 .container {
+    width: 60%;
     margin:  auto;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;  
-    align-items: flex-start;  
 }
-.header button{
+button{
     background-color:aquamarine;
     padding: 5px 10px;
+}
 
+.buttons{
+    display: flex;
 }
 .header h1 {
     margin: 0;
