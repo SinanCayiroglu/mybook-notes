@@ -10,10 +10,10 @@ app.use(express.urlencoded());
 app.set("view engine", "ejs");
 
 const db = new pg.Client({
-  user: "postgres",
-  host: "database-3.cjg8eayy236w.us-east-1.rds.amazonaws.com",
-  database: "mybooknotes",
-  password: "JNqPLdVeb7DQYMJQoD2F",
+   user: "blogwebapp_user",
+  host: "dpg-cnqqsda1hbls73dserag-a.frankfurt-postgres.render.com",
+  database: "blogwebapp",
+  password: "Fe2acZyC5sfPhgoPDKObWGUcTyYHPnEl",
   port: 5432,
   ssl: {
     rejectUnauthorized: false // This is required for render.com's SSL configuration
