@@ -1,6 +1,7 @@
 const express = require("express")
 const axios = require("axios")
 const pg = require("pg")
+require('dotenv').config();
 
 const app = express()
 
@@ -10,11 +11,11 @@ app.use(express.urlencoded());
 app.set("view engine", "ejs");
 
 const db = new pg.Client({
-   user: "blogwebapp_user",
+  user: "blogwebapp_user",
   host: "dpg-cnqqsda1hbls73dserag-a.frankfurt-postgres.render.com",
   database: "blogwebapp",
-  password: "Fe2acZyC5sfPhgoPDKObWGUcTyYHPnEl",
-  port: 5432,
+  password: process.env.PASSWORD,
+  port: process.env.PORT,
   ssl: {
     rejectUnauthorized: false // This is required for render.com's SSL configuration
   }
