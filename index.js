@@ -14,8 +14,8 @@ const db = new pg.Client({
   user: "blogwebapp_user",
   host: "dpg-cnqqsda1hbls73dserag-a.frankfurt-postgres.render.com",
   database: "blogwebapp",
-  password: process.env.PASSWORD,
-  port: process.env.PORT,
+  password: Fe2acZyC5sfPhgoPDKObWGUcTyYHPnEl,
+  port: 5432,
   ssl: {
     rejectUnauthorized: false // This is required for render.com's SSL configuration
   }
